@@ -8,5 +8,6 @@ import java.util.List;
  */
 public class ShoppingCartReply {
     public Long shoppingCartId;
+    public Double totalCost;
     public List<OrderReply> orders = new ArrayList<>();
 }

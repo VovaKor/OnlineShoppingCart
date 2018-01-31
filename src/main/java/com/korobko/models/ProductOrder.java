@@ -4,13 +4,13 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "ORDERS")
-public class ProductOrder {
+public class ProductOrder implements Comparable<ProductOrder> {
 
     @Id
     @GeneratedValue(generator = "ORDER_GEN")
     @SequenceGenerator(name = "ORDER_GEN", sequenceName = "ORDER_SEQ", allocationSize = 1)
     private Long orderId;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "FK_PRODUCT_ID")
     private Product product;
     private Integer amount;
@@ -48,5 +48,10 @@ public class ProductOrder {
 
     public void setShoppingCart(ShoppingCart shoppingCart) {
         this.shoppingCart = shoppingCart;
+    }
+
+    @Override
+    public int compareTo(ProductOrder o) {
+        return orderId.compareTo(o.getOrderId());
     }
 }

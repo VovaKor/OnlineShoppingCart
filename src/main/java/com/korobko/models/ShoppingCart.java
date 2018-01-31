@@ -14,7 +14,7 @@ public class ShoppingCart {
     @GeneratedValue(generator = "CART_GEN")
     @SequenceGenerator(name = "CART_GEN", sequenceName = "CART_SEQ", allocationSize = 1)
     private Long shoppingCartId;
-    private Long userId;
+
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "shoppingCart")
     private List<ProductOrder> productOrders = new ArrayList<>();
 
@@ -26,13 +26,6 @@ public class ShoppingCart {
         this.shoppingCartId = shoppingCartId;
     }
 
-    public Long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
 
     public List<ProductOrder> getProductOrders() {
         return productOrders;
