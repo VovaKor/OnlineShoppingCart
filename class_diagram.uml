@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="482.0" y="1511.0">com.korobko.mappers.ProductOrderMapper</node>
+    <node x="1171.4362980769229" y="1710.0">com.korobko.controllers.ShoppingCartController</node>
+    <node x="1603.6041666666665" y="974.5">com.korobko.api.GenericReply</node>
+    <node x="51.0" y="1463.0">com.korobko.services.ShoppingCartService</node>
+    <node x="219.0" y="1261.0">com.korobko.repositories.ProductOrderRepository</node>
+    <node x="632.998798076923" y="1260.5">com.korobko.services.ProductService</node>
+    <node x="193.44671474358984" y="479.0">com.korobko.models.ShoppingCart</node>
+    <node x="1152.0" y="108.5">com.korobko.api.CategoryReply</node>
+    <node x="546.4467147435898" y="371.0">com.korobko.models.Product</node>
+    <node x="1475.4375" y="1249.0">com.korobko.api.ShoppingCartReply</node>
+    <node x="360.19671474358984" y="854.0">com.korobko.models.ProductOrder</node>
+    <node x="593.0717147435898" y="0.0">com.korobko.models.Category</node>
+    <node x="952.998798076923" y="1249.0">com.korobko.api.AddProductRequest</node>
+    <node x="672.1967147435898" y="1010.5">com.korobko.repositories.ProductRepository</node>
+    <node x="1259.9375" y="503.5">com.korobko.api.ProductReply</node>
+    <node x="1153.1967147435898" y="1523.5">com.korobko.mappers.ShoppingCartMapper</node>
+    <node x="0.0" y="1010.5">com.korobko.repositories.ShoppingCartRepository</node>
+    <node x="1347.6041666666665" y="974.5">com.korobko.api.OrderReply</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.korobko.mappers.ProductOrderMapper" target="com.korobko.api.AddProductRequest">
+      <point x="129.75" y="-40.5" />
+      <point x="784.75" y="1443.0" />
+      <point x="995.748798076923" y="1443.0" />
+      <point x="-42.75" y="52.0" />
+    </edge>
+    <edge source="com.korobko.services.ShoppingCartService" target="com.korobko.repositories.ShoppingCartRepository">
+      <point x="-154.125" y="-88.5" />
+      <point x="102.375" y="1443.0" />
+      <point x="99.0" y="1443.0" />
+      <point x="0.0" y="16.0" />
+    </edge>
+    <edge source="com.korobko.repositories.ProductOrderRepository" target="com.korobko.models.ProductOrder">
+      <point x="0.0" y="-40.0" />
+      <point x="318.0" y="1229.0" />
+      <point x="389.3967147435899" y="1229.0" />
+      <point x="-116.79999999999995" y="172.5" />
+    </edge>
+    <edge source="com.korobko.mappers.ProductOrderMapper" target="com.korobko.models.ProductOrder">
+      <point x="-129.75" y="-40.5" />
+      <point x="525.25" y="1443.0" />
+      <point x="480.1875" y="1443.0" />
+      <point x="480.1875" y="1229.0" />
+      <point x="506.19671474358984" y="1229.0" />
+      <point x="0.0" y="172.5" />
+    </edge>
+    <edge source="com.korobko.repositories.ProductRepository" target="com.korobko.models.Product">
+      <point x="0.0" y="-16.0" />
+      <point x="753.6967147435898" y="834.0" />
+      <point x="729.6610004578756" y="834.0" />
+      <point x="40.71428571428578" y="196.5" />
+    </edge>
+    <edge source="com.korobko.mappers.ShoppingCartMapper" target="com.korobko.models.ShoppingCart">
+      <point x="-133.875" y="-28.0" />
+      <point x="1197.8217147435898" y="1433.0" />
+      <point x="1145.498798076923" y="1433.0" />
+      <point x="1145.498798076923" y="794.0" />
+      <point x="502.6610004578756" y="794.0" />
+      <point x="142.71428571428578" y="88.5" />
+    </edge>
+    <edge source="com.korobko.api.ShoppingCartReply" target="com.korobko.api.OrderReply">
+      <point x="-54.0" y="-52.0" />
+      <point x="1529.4375" y="1229.0" />
+      <point x="1544.2708333333333" y="1229.0" />
+      <point x="78.66666666666674" y="52.0" />
+    </edge>
+    <edge source="com.korobko.controllers.ShoppingCartController" target="com.korobko.mappers.ProductOrderMapper">
+      <point x="-139.0625" y="-100.5" />
+      <point x="1254.8737980769229" y="1680.0" />
+      <point x="655.0" y="1680.0" />
+      <point x="0.0" y="40.5" />
+    </edge>
+    <edge source="com.korobko.models.Product" target="com.korobko.models.Category">
+      <point x="-106.875" y="-196.5" />
+      <point x="582.0717147435898" y="351.0" />
+      <point x="619.3717147435898" y="351.0" />
+      <point x="-105.20000000000005" y="160.5" />
+    </edge>
+    <edge source="com.korobko.api.ProductReply" target="com.korobko.api.CategoryReply">
+      <point x="0.0" y="-64.0" />
+      <point x="1367.4375" y="351.0" />
+      <point x="1299.5" y="351.0" />
+      <point x="59.0" y="52.0" />
+    </edge>
+    <edge source="com.korobko.mappers.ShoppingCartMapper" target="com.korobko.api.ShoppingCartReply">
+      <point x="133.875" y="-28.0" />
+      <point x="1465.5717147435898" y="1433.0" />
+      <point x="1502.4375" y="1433.0" />
+      <point x="-81.0" y="52.0" />
+    </edge>
+    <edge source="com.korobko.models.ShoppingCart" target="com.korobko.models.ProductOrder">
+      <point x="47.57142857142867" y="88.5" />
+      <point x="407.5181433150185" y="814.0" />
+      <point x="451.44671474358984" y="814.0" />
+      <point x="-54.75" y="-172.5" />
+    </edge>
+    <edge source="com.korobko.controllers.ShoppingCartController" target="com.korobko.api.ShoppingCartReply">
+      <point x="27.8125" y="-100.5" />
+      <point x="1421.7487980769229" y="1660.0" />
+      <point x="1610.4375" y="1660.0" />
+      <point x="27.0" y="52.0" />
+    </edge>
+    <edge source="com.korobko.models.Category" target="com.korobko.models.Product">
+      <point x="52.60000000000002" y="160.5" />
+      <point x="777.1717147435899" y="351.0" />
+      <point x="795.8217147435898" y="351.0" />
+      <point x="106.875" y="-196.5" />
+    </edge>
+    <edge source="com.korobko.repositories.ShoppingCartRepository" target="com.korobko.models.ShoppingCart">
+      <point x="0.0" y="-16.0" />
+      <point x="99.0" y="824.0" />
+      <point x="217.23242902930406" y="824.0" />
+      <point x="-142.71428571428578" y="88.5" />
+    </edge>
+    <edge source="com.korobko.api.OrderReply" target="com.korobko.api.ProductReply">
+      <point x="0.0" y="-52.0" />
+      <point x="1465.6041666666665" y="834.0" />
+      <point x="1439.1041666666667" y="834.0" />
+      <point x="71.66666666666674" y="64.0" />
+    </edge>
+    <edge source="com.korobko.services.ShoppingCartService" target="com.korobko.models.ShoppingCart">
+      <point x="-51.375" y="-88.5" />
+      <point x="205.125" y="1443.0" />
+      <point x="208.5" y="1443.0" />
+      <point x="208.5" y="834.0" />
+      <point x="264.8038576007327" y="834.0" />
+      <point x="-95.14285714285711" y="88.5" />
+    </edge>
+    <edge source="com.korobko.services.ProductService" target="com.korobko.repositories.ProductRepository">
+      <point x="-75.0" y="-40.5" />
+      <point x="707.998798076923" y="1229.0" />
+      <point x="753.6967147435898" y="1229.0" />
+      <point x="0.0" y="16.0" />
+    </edge>
+    <edge source="com.korobko.services.ShoppingCartService" target="com.korobko.repositories.ProductOrderRepository">
+      <point x="51.375" y="-88.5" />
+      <point x="307.875" y="1443.0" />
+      <point x="318.0" y="1443.0" />
+      <point x="0.0" y="40.0" />
+    </edge>
+    <edge source="com.korobko.mappers.ShoppingCartMapper" target="com.korobko.models.Category">
+      <point x="-74.375" y="-28.0" />
+      <point x="1257.3217147435898" y="1413.0" />
+      <point x="1194.5" y="1413.0" />
+      <point x="1194.5" y="351.0" />
+      <point x="829.7717147435898" y="351.0" />
+      <point x="105.19999999999993" y="160.5" />
+    </edge>
+    <edge source="com.korobko.mappers.ShoppingCartMapper" target="com.korobko.models.ProductOrder">
+      <point x="-163.625" y="-28.0" />
+      <point x="1168.0717147435898" y="1443.0" />
+      <point x="1134.498798076923" y="1443.0" />
+      <point x="1134.498798076923" y="1219.0" />
+      <point x="622.9967147435898" y="1219.0" />
+      <point x="116.79999999999995" y="172.5" />
+    </edge>
+    <edge source="com.korobko.mappers.ShoppingCartMapper" target="com.korobko.models.Product">
+      <point x="-104.125" y="-28.0" />
+      <point x="1227.5717147435898" y="1423.0" />
+      <point x="1183.5" y="1423.0" />
+      <point x="1183.5" y="784.0" />
+      <point x="811.089571886447" y="784.0" />
+      <point x="122.14285714285711" y="196.5" />
+    </edge>
+    <edge source="com.korobko.controllers.ShoppingCartController" target="com.korobko.api.AddProductRequest">
+      <point x="-83.4375" y="-100.5" />
+      <point x="1310.4987980769229" y="1670.0" />
+      <point x="1081.248798076923" y="1670.0" />
+      <point x="42.75" y="52.0" />
+    </edge>
+    <edge source="com.korobko.services.ProductService" target="com.korobko.models.Product">
+      <point x="75.0" y="-40.5" />
+      <point x="857.998798076923" y="1229.0" />
+      <point x="845.6967147435898" y="1229.0" />
+      <point x="845.6967147435898" y="834.0" />
+      <point x="770.3752861721613" y="834.0" />
+      <point x="81.42857142857144" y="196.5" />
+    </edge>
+    <edge source="com.korobko.mappers.ProductOrderMapper" target="com.korobko.services.ProductService">
+      <point x="43.25" y="-40.5" />
+      <point x="698.25" y="1433.0" />
+      <point x="782.998798076923" y="1433.0" />
+      <point x="0.0" y="40.5" />
+    </edge>
+    <edge source="com.korobko.controllers.ShoppingCartController" target="com.korobko.mappers.ShoppingCartMapper">
+      <point x="-27.8125" y="-100.5" />
+      <point x="1366.1237980769229" y="1690.0" />
+      <point x="1331.6967147435898" y="1690.0" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="com.korobko.models.Product" target="com.korobko.models.ProductOrder">
+      <point x="-40.71428571428578" y="196.5" />
+      <point x="648.2324290293041" y="824.0" />
+      <point x="597.4467147435898" y="824.0" />
+      <point x="91.25" y="-172.5" />
+    </edge>
+    <edge source="com.korobko.mappers.ShoppingCartMapper" target="com.korobko.api.CategoryReply">
+      <point x="-44.625" y="-28.0" />
+      <point x="1287.0717147435898" y="1403.0" />
+      <point x="1205.5" y="1403.0" />
+      <point x="1205.5" y="341.0" />
+      <point x="1181.5" y="341.0" />
+      <point x="-59.0" y="52.0" />
+    </edge>
+    <edge source="com.korobko.services.ShoppingCartService" target="com.korobko.models.ProductOrder">
+      <point x="154.125" y="-88.5" />
+      <point x="410.625" y="1443.0" />
+      <point x="427.5" y="1443.0" />
+      <point x="427.5" y="1229.0" />
+      <point x="447.79671474358986" y="1229.0" />
+      <point x="-58.39999999999998" y="172.5" />
+    </edge>
+    <edge source="com.korobko.controllers.ShoppingCartController" target="com.korobko.services.ShoppingCartService">
+      <point x="-194.6875" y="-100.5" />
+      <point x="1199.2487980769229" y="1690.0" />
+      <point x="256.5" y="1690.0" />
+      <point x="0.0" y="88.5" />
+    </edge>
+    <edge source="com.korobko.controllers.ShoppingCartController" target="com.korobko.api.GenericReply">
+      <point x="139.0625" y="-100.5" />
+      <point x="1532.9987980769229" y="1680.0" />
+      <point x="1702.1875" y="1680.0" />
+      <point x="0.0" y="52.0" />
+    </edge>
+    <edge source="com.korobko.api.ShoppingCartReply" target="com.korobko.api.GenericReply">
+      <point x="54.0" y="-52.0" />
+      <point x="-66.33333333333333" y="52.0" />
+    </edge>
+    <edge source="com.korobko.models.ProductOrder" target="com.korobko.models.ShoppingCart">
+      <point x="-127.75" y="-172.5" />
+      <point x="378.44671474358984" y="834.0" />
+      <point x="312.3752861721613" y="834.0" />
+      <point x="-47.571428571428555" y="88.5" />
+    </edge>
+    <edge source="com.korobko.models.ProductOrder" target="com.korobko.models.Product">
+      <point x="54.75" y="-172.5" />
+      <point x="560.9467147435898" y="814.0" />
+      <point x="607.5181433150184" y="814.0" />
+      <point x="-81.42857142857144" y="196.5" />
+    </edge>
+    <edge source="com.korobko.mappers.ShoppingCartMapper" target="com.korobko.api.ProductReply">
+      <point x="14.875" y="-28.0" />
+      <point x="1346.5717147435898" y="1383.0" />
+      <point x="1299.1029647435896" y="1383.0" />
+      <point x="1299.1029647435896" y="834.0" />
+      <point x="1295.7708333333333" y="834.0" />
+      <point x="-71.66666666666669" y="64.0" />
+    </edge>
+    <edge source="com.korobko.mappers.ShoppingCartMapper" target="com.korobko.api.OrderReply">
+      <point x="74.375" y="-28.0" />
+      <point x="1406.0717147435898" y="1443.0" />
+      <point x="1393.7696314102564" y="1443.0" />
+      <point x="1393.7696314102564" y="1229.0" />
+      <point x="1386.9375" y="1229.0" />
+      <point x="-78.66666666666669" y="52.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.5009009009009009" x="878.5" y="535.0" />
+  <SelectedNodes>
+    <node>com.korobko.models.Product</node>
+    <node>com.korobko.models.ProductOrder</node>
+    <node>com.korobko.models.Category</node>
+    <node>com.korobko.models.ShoppingCart</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
