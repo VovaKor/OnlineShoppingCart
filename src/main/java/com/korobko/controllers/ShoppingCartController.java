@@ -9,12 +9,17 @@ import com.korobko.services.ShoppingCartService;
 import com.korobko.utils.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @author Vova Korobko
  */
 @RestController
+@RequestMapping("/shopping_cart")
 public class ShoppingCartController {
     @Autowired
     private ProductOrderMapper productOrderMapper;
@@ -24,29 +29,12 @@ public class ShoppingCartController {
     private ShoppingCartService shoppingCartService;
 
     /**
-     * Calculates the total cost for products in the shopping cart. The {@code ShoppingCartReply}
-     * contains only shopping cart id and total cost. List of orders is empty.
-     *
-     * @param cartId the {@code Long} value {@code ShoppingCart} id
-     * @return the {@code ShoppingCartReply} object
-     */
-    @RequestMapping(path = "/shopping_cart/{cartId}/total",
-            method = RequestMethod.GET,
-            produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public ShoppingCartReply getShoppingCartTotalCost(@PathVariable Long cartId) {
-        ShoppingCartReply shoppingCartReply = new ShoppingCartReply();
-        shoppingCartReply.shoppingCartId = cartId;
-        shoppingCartReply.totalCost = shoppingCartService.getShoppingCartTotalCost(cartId);
-        return shoppingCartReply;
-    }
-
-    /**
      * Retrieves shopping cart from database
      *
      * @param cartId the {@code Long} value {@code ShoppingCart} id
      * @return the {@code ShoppingCartReply} object
      */
-    @RequestMapping(path = "/shopping_cart/{cartId}",
+    @RequestMapping(path = "/{cartId}",
             method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ShoppingCartReply getShoppingCartById(@PathVariable Long cartId) {
@@ -62,8 +50,7 @@ public class ShoppingCartController {
      * @param addProductRequest the {@code AddProductRequest} object
      * @return the {@code ShoppingCartReply} object
      */
-    @RequestMapping(path = "/shopping_cart/update",
-            method = RequestMethod.POST,
+    @RequestMapping(method = RequestMethod.PUT,
             produces = MediaType.APPLICATION_JSON_UTF8_VALUE,
             consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ShoppingCartReply updateShoppingCart(@RequestBody AddProductRequest addProductRequest) {
@@ -80,8 +67,8 @@ public class ShoppingCartController {
      * @return the {@code GenericReply} object
      * @see GenericReply
      */
-    @RequestMapping(path = "/shopping_cart/remove_item/{orderId}",
-            method = RequestMethod.GET,
+    @RequestMapping(path = "/orders/{orderId}",
+            method = RequestMethod.DELETE,
             produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public GenericReply removeOrderById(@PathVariable Long orderId) {
         GenericReply genericReply = new GenericReply();

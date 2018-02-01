@@ -1,5 +1,6 @@
 package com.korobko.api;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,6 +9,6 @@ import java.util.List;
  */
 public class ShoppingCartReply extends GenericReply {
     public Long shoppingCartId;
-    public Double totalCost;
+    public BigDecimal totalCost;
     public List<OrderReply> orders = new ArrayList<>();
 }

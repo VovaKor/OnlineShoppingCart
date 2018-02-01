@@ -1,17 +1,9 @@
 package com.korobko.controllers;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.korobko.api.AddProductRequest;
 import com.korobko.api.ShoppingCartReply;
-import com.korobko.models.Category;
-import com.korobko.models.Product;
-import com.korobko.models.ProductOrder;
-import com.korobko.models.ShoppingCart;
 import com.korobko.repositories.ProductOrderRepository;
-import com.korobko.repositories.ProductRepository;
-import com.korobko.repositories.ShoppingCartRepository;
-import org.junit.ClassRule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,8 +18,9 @@ import static org.hamcrest.CoreMatchers.containsString;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -61,7 +54,7 @@ public class ShoppingCartControllerTest {
         addProductRequest.productId = 8L;
         addProductRequest.amount = 10;
         String json = objectMapper.writeValueAsString(addProductRequest);
-        MvcResult result = mockMvc.perform(post("/shopping_cart/update")
+        MvcResult result = mockMvc.perform(put("/shopping_cart")
                 .accept(MediaType.APPLICATION_JSON_UTF8)
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
                 .content(json)
@@ -89,7 +82,7 @@ public class ShoppingCartControllerTest {
         addProductRequest.productId = 6L;
         addProductRequest.amount = 10;
         String json = objectMapper.writeValueAsString(addProductRequest);
-        MvcResult result = mockMvc.perform(post("/shopping_cart/update")
+        MvcResult result = mockMvc.perform(put("/shopping_cart")
                 .accept(MediaType.APPLICATION_JSON_UTF8)
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
                 .content(json)
@@ -103,7 +96,7 @@ public class ShoppingCartControllerTest {
             if (o.productReply.productId == 6L) {
                 try {
                     Long orderId = o.orderId;
-                    mockMvc.perform(get("/shopping_cart/remove_item/" + orderId))
+                    mockMvc.perform(delete("/shopping_cart/orders/" + orderId))
                             .andDo(print()).andExpect(status().isOk())
                             .andExpect(content().string(containsString("\"retCode\":0")));
                     MvcResult mvcResult = mockMvc.perform(get("/shopping_cart/7"))
@@ -127,7 +120,7 @@ public class ShoppingCartControllerTest {
         product.productId = 6L;
         product.amount = 10;
         String json = objectMapper.writeValueAsString(product);
-        mockMvc.perform(post("/shopping_cart/update")
+        mockMvc.perform(put("/shopping_cart")
                 .accept(MediaType.APPLICATION_JSON_UTF8)
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
                 .content(json))
@@ -135,12 +128,12 @@ public class ShoppingCartControllerTest {
         product.productId = 8L;
         product.amount = 50;
         json = objectMapper.writeValueAsString(product);
-        mockMvc.perform(post("/shopping_cart/update")
+        mockMvc.perform(put("/shopping_cart")
                 .accept(MediaType.APPLICATION_JSON_UTF8)
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
                 .content(json))
                 .andExpect(status().isOk());
-        mockMvc.perform(get("/shopping_cart/7/total"))
+        mockMvc.perform(get("/shopping_cart/7"))
                 .andDo(print()).andExpect(status().isOk())
                 .andExpect(content().string(containsString("\"shoppingCartId\":7")))
                 .andExpect(content().string(containsString("1603.0")));

@@ -1,6 +1,15 @@
 package com.korobko.models;
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +22,7 @@ public class Product {
     @SequenceGenerator(name = "PRODUCT_GEN", sequenceName = "PRODUCT_SEQ", allocationSize = 1)
     private Long productId;
     private String productName;
-    private Double price;
+    private BigDecimal price;
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
     private List<ProductOrder> orders = new ArrayList<>();
@@ -37,11 +46,11 @@ public class Product {
         this.productName = productName;
     }
 
-    public Double getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(Double price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 

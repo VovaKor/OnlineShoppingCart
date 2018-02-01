@@ -6,10 +6,8 @@ import com.korobko.repositories.ProductOrderRepository;
 import com.korobko.repositories.ShoppingCartRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Isolation;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Objects;
 
@@ -17,7 +15,6 @@ import java.util.Objects;
  * @author Vova Korobko
  */
 @Service
-@Transactional
 public class ShoppingCartService {
     @Autowired
     private ShoppingCartRepository shoppingCartRepository;
@@ -56,13 +53,13 @@ public class ShoppingCartService {
         productOrderRepository.delete(orderId);
     }
 
-    public Double getShoppingCartTotalCost(Long cartId) {
+    public BigDecimal getShoppingCartTotalCost(Long cartId) {
         ShoppingCart shoppingCart = shoppingCartRepository.findOne(cartId);
-        double sum = 0;
+        BigDecimal sum = BigDecimal.ZERO;
         if (Objects.nonNull(shoppingCart)) {
              sum = shoppingCart.getProductOrders().stream()
-                    .mapToDouble(productOrder -> productOrder.getAmount() * productOrder.getProduct().getPrice())
-                    .sum();
+                    .map(productOrder -> productOrder.getProduct().getPrice().multiply(new BigDecimal(productOrder.getAmount())))
+                    .reduce(BigDecimal.ZERO, BigDecimal::add);
         }
         return sum;
     }
